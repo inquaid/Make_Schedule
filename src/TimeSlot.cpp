@@ -1,14 +1,9 @@
-//
-// Created by azmain inquaid haque on 4/17/2025.
-//
-
-#include "D:\program\Schedule_Management\include\TimeSlot.h"
+#include "TimeSlot.h"
 
 TimeSlot::TimeSlot(const std::string &day, int startHour, int endHour)
     : day(day), startHour(startHour), endHour(endHour) {
 }
 
-// Getters
 std::string TimeSlot::getDay() const {
     return day;
 }
@@ -21,7 +16,10 @@ int TimeSlot::getEndHour() const {
     return endHour;
 }
 
-// Utility
+int TimeSlot::getDuration() const {
+    return endHour - startHour;
+}
+
 bool TimeSlot::conflictsWith(const TimeSlot &other) const {
     if (day != other.day) return false;
     return !(endHour <= other.startHour || startHour >= other.endHour);

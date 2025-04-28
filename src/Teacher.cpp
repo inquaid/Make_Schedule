@@ -1,8 +1,4 @@
-//
-// Created by azmain inquaid haque on 4/17/2025.
-//
-
-#include "D:\program\Schedule_Management\include\Teacher.h"
+#include "Teacher.h"
 
 Teacher::Teacher(const std::string &code, const std::string &name, const std::string &designation)
     : code(code), name(name), designation(designation) {
@@ -12,7 +8,6 @@ Teacher::Teacher(const std::string &code, const std::string &name, const std::st
 std::string Teacher::getCode() const {
     return code;
 }
-
 
 std::string Teacher::getName() const {
     return name;
@@ -26,20 +21,8 @@ int Teacher::getPriority() const {
     return priority;
 }
 
-void Teacher::setAvailableTimeSlots(const std::vector<TimeSlot> &slots) {
-    availableTimeSlots = slots;
-}
-
 void Teacher::addCourse(const Course &course) {
     courses.push_back(course);
-}
-
-void Teacher::addTimeSlot(const TimeSlot &timeSlot) {
-    availableTimeSlots.push_back(timeSlot);
-}
-
-const std::vector<TimeSlot> &Teacher::getAvailableTimeSlots() const {
-    return availableTimeSlots;
 }
 
 const std::vector<Course> &Teacher::getCourses() const {

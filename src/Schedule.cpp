@@ -2,66 +2,75 @@
 #include <fstream>
 #include <map>
 #include <tuple>
+#include <algorithm>
+#include <stdexcept>
 
-void Schedule::addTeacher(Teacher* teacher) {
+void Schedule::addTeacher(Teacher *teacher) {
     teachers.push_back(teacher);
 }
 
-bool Schedule::isSlotFree(const TimeSlot& slot) const {
-    for (const auto& a : assignments) {
-        if (a.timeSlot.conflictsWith(slot)) {
-            return false;
-        }
-    }
-    return true;
-}
+bool Schedule::backtrack(int idx, const std::vector<SessionRequest> &sessions, const std::map<std::string, Teacher*> &courseToTeacher) {
+    if (idx == sessions.size())
+        return true;
 
-Teacher* Schedule::getConflictingTeacher(const TimeSlot& slot) const {
-    for (const auto& a : assignments) {
-        if (a.timeSlot.conflictsWith(slot)) {
-            return a.teacher;
+    const Course &course = sessions[idx].course;
+    int duration = sessions[idx].duration;
+    Teacher* teacher = courseToTeacher.at(course.getCode());
+
+    for (const TimeSlot &ts : course.getAvailableTimeSlots()) {
+        if (ts.getDuration() != duration) continue;
+        bool conflict = false;
+        for (const auto& a : assignments) {
+            if ((a.course.getYear() == course.getYear() && a.timeSlot.conflictsWith(ts)) ||
+                (a.teacher == teacher && a.timeSlot.conflictsWith(ts))) {
+                conflict = true;
+                break;
+            }
         }
+        if (conflict) continue;
+
+        assignments.push_back({teacher, course, ts});
+        if (backtrack(idx + 1, sessions, courseToTeacher))
+            return true;
+
+        assignments.pop_back();
     }
-    return nullptr;
+
+    return false;
 }
 
 void Schedule::generateSchedule() {
-    for (Teacher* teacher : teachers) {
-        for (const Course& course : teacher->getCourses()) {
-            int sessions = course.getSessionsPerWeek();
-            for (const TimeSlot& ts : teacher->getAvailableTimeSlots()) {
-                if (sessions == 0) break;
-                if (isSlotFree(ts)) {
-                    assignments.push_back({teacher, course, ts});
-                    --sessions;
-                } else {
-                    Teacher* other = getConflictingTeacher(ts);
-                    if (other && other->getPriority() > teacher->getPriority()) {
-                        for (auto& a : assignments) {
-                            if (a.timeSlot.conflictsWith(ts)) {
-                                a = {teacher, course, ts};
-                                --sessions;
-                                break;
-                            }
-                        }
-                    }
-                }
+    std::vector<SessionRequest> sessions;
+    std::map<std::string, Teacher*> courseToTeacher;
+
+    for (Teacher* t : teachers) {
+        for (const Course& c : t->getCourses()) {
+            courseToTeacher[c.getCode()] = t;
+            for (int dur : c.getSessionDurations()) {
+                sessions.push_back({c, dur});
             }
         }
     }
+
+    if (!backtrack(0, sessions, courseToTeacher)) {
+        throw std::runtime_error("Unable to find a conflict-free schedule");
+    }
 }
 
-void Schedule::exportCSV(const std::string& filename) const {
+void Schedule::exportCSV(const std::string &filename) const {
     std::ofstream ofs(filename);
     if (!ofs) return;
 
-    std::vector<std::string> days = {"SUN", "MON", "TUES", "WED", "THRUS"};
+    std::vector<std::string> days = {"SUN", "MON", "TUE", "WED", "THU"};
     std::vector<int> hours = {8, 9, 10, 11, 12, 13, 14, 15, 16};
 
     std::map<std::tuple<std::string, int, int>, std::string> cell;
-    for (const auto& a : assignments) {
-        cell[{a.timeSlot.getDay(), a.timeSlot.getStartHour(), a.course.getYear()}] =
-            a.teacher->getCode() + " " + a.course.getCode();
+    for (const auto &a : assignments) {
+        int start = a.timeSlot.getStartHour();
+        int end = a.timeSlot.getEndHour();
+        for (int h = start; h < end; ++h) {
+            cell[{a.timeSlot.getDay(), h, a.course.getYear()}] = a.teacher->getCode() + " " + a.course.getCode();
+        }
     }
 
     ofs << "Day,Year";
@@ -74,7 +83,7 @@ void Schedule::exportCSV(const std::string& filename) const {
     }
     ofs << "\n";
 
-    for (const auto& day : days) {
+    for (const auto &day : days) {
         for (int yr = 1; yr <= 4; ++yr) {
             ofs << day << "," << yr;
             for (int h : hours) {
@@ -85,18 +94,14 @@ void Schedule::exportCSV(const std::string& filename) const {
             ofs << "\n";
         }
     }
-
-    ofs.close();
 }
 
-void Schedule::exportTeachers(const std::string& filename) const {
+void Schedule::exportTeachers(const std::string &filename) const {
     std::ofstream ofs(filename);
     if (!ofs) return;
 
     ofs << "Code,FullName\n";
-    for (const auto* t : teachers) {
+    for (const auto *t : teachers) {
         ofs << t->getCode() << "," << t->getName() << "\n";
     }
-
-    ofs.close();
 }

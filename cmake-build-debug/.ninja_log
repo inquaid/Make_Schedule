@@ -1,9 +1,14 @@
 # ninja log v6
-13	329	7665633868829042	CMakeFiles/Schedule_Management.dir/src/TimeSlot.cpp.obj	10fd4d73b3e5661a
-5	416	7665631983143977	CMakeFiles/Schedule_Management.dir/main.cpp.obj	2834eb3f6e04e05
-764	949	7665677357339280	Schedule_Management.exe	898c4c87abe6c8b4
-5	764	7665677349748209	CMakeFiles/Schedule_Management.dir/src/Schedule.cpp.obj	c690958904d68b16
-2	229	7665736703680133	build.ninja	af5d6ca0b6418283
-12	293	7665646518782635	CMakeFiles/Schedule_Management.dir/src/Course.cpp.obj	8c7eb2df7b551968
-5	423	7665673906312467	CMakeFiles/Schedule_Management.dir/src/Teacher.cpp.obj	90773b9002e12072
-10	442	7665677349798223	CMakeFiles/Schedule_Management.dir/src/main.cpp.obj	4819dde43bf4548f
+15	339	7675280705235799	CMakeFiles/Schedule_Management.dir/src/TimeSlot.cpp.obj	10fd4d73b3e5661a
+663	995	7675302767350362	Schedule_Management.exe	898c4c87abe6c8b4
+2	229	7675306473492792	build.ninja	af5d6ca0b6418283
+16	990	7675295951209723	CMakeFiles/Schedule_Management.dir/src/Schedule.cpp.obj	c690958904d68b16
+12	449	7675295951168700	CMakeFiles/Schedule_Management.dir/src/Course.cpp.obj	8c7eb2df7b551968
+6	387	7675295951097447	CMakeFiles/Schedule_Management.dir/src/Teacher.cpp.obj	90773b9002e12072
+5	653	7675302760760306	CMakeFiles/Schedule_Management.dir/src/main.cpp.obj	4819dde43bf4548f
+15	314	7675306532208781	CMakeFiles/Schedule_Management.dir/src/TimeSlot.cpp.obj	a90b7fe5051b4933
+7	414	7675306532133852	CMakeFiles/Schedule_Management.dir/src/Teacher.cpp.obj	d1c5d7cd4db27d31
+11	457	7675306532178615	CMakeFiles/Schedule_Management.dir/src/Course.cpp.obj	99170afc30424ca0
+26	525	7675306532325541	CMakeFiles/Schedule_Management.dir/src/main.cpp.obj	6457355793ac4966
+19	1013	7675306532260333	CMakeFiles/Schedule_Management.dir/src/Schedule.cpp.obj	4cc620ac73abad4b
+1013	1258	7675306542193134	Schedule_Management.exe	898c4c87abe6c8b4

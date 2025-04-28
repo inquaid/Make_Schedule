@@ -1,4 +1,3 @@
-// src/main.cpp
 #include <iostream>
 #include "Teacher.h"
 #include "Course.h"
@@ -6,36 +5,90 @@
 #include "Schedule.h"
 
 int main() {
-    // 1) Create courses: code, title, sessions/week, year
-    Course os("CSE301", "Operating Systems", 2, 3);
-    Course dsa("CSE201", "Data Structures",    3, 4);
+    // Define Courses with credit hours and available timeslots
+    Course ComputerFundamentalsLab("071402CSE1100", "Computer Fundamentals Laboratory", 0.5, 1);
+    ComputerFundamentalsLab.addAvailableTimeSlot(TimeSlot("SUN", 14, 17)); // 3h
+    ComputerFundamentalsLab.addAvailableTimeSlot(TimeSlot("WED", 14, 17)); // 3h
 
-    // 2) Create teachers: code, full name, priority
-    Teacher prof("MAR", "Prof. Md. Anisur Rahman",        "Professor");
-    Teacher lect("SAH", "Mr. Sheikh Alamgir Hossain",    "Associate Professor");
+    Course StructuredProgramming("071402CSE1101", "Structured Programming", 3, 1);
+    StructuredProgramming.addAvailableTimeSlot(TimeSlot("MON", 11, 12));   // 1h
+    StructuredProgramming.addAvailableTimeSlot(TimeSlot("TUE", 9, 10));    // 1h
+    StructuredProgramming.addAvailableTimeSlot(TimeSlot("THU", 11, 12));   // 1h
 
-    // 3) Assign courses
-    prof.addCourse(os);
-    lect.addCourse(dsa);
+    Course StructuredProgrammingLab("071402CSE1102", "Structured Programming Laboratory", 0.5, 1);
+    StructuredProgrammingLab.addAvailableTimeSlot(TimeSlot("THU", 14, 17)); // 3h
+    StructuredProgrammingLab.addAvailableTimeSlot(TimeSlot("FRI", 14, 17)); // 3h
 
-    // 4) Assign available slots (must match your CSV days)
-    prof.addTimeSlot(TimeSlot("SUN",    9, 10));
-    prof.addTimeSlot(TimeSlot("WED",10, 11));
+    Course DiscreteMath("071402CSE1103", "Discrete Mathematics", 2, 1);
+    DiscreteMath.addAvailableTimeSlot(TimeSlot("SUN", 10, 11));            // 1h
+    DiscreteMath.addAvailableTimeSlot(TimeSlot("TUE", 9, 10));             // 1h
+    DiscreteMath.addAvailableTimeSlot(TimeSlot("TUE", 10, 11));             // 1h
+    DiscreteMath.addAvailableTimeSlot(TimeSlot("THU", 9, 10));             // 1h
+    //
+    Course Calculus("054102Math1151", "Calculus", 3, 1);
+    Calculus.addAvailableTimeSlot(TimeSlot("SUN", 11, 12));                // 1h
+    Calculus.addAvailableTimeSlot(TimeSlot("MON", 9, 10));                 // 1h
+    Calculus.addAvailableTimeSlot(TimeSlot("WED", 9, 10));                 // 1h
 
-    lect.addTimeSlot(TimeSlot("SUN",   9, 10));  // conflict
-    lect.addTimeSlot(TimeSlot("TUES",11, 12));
-    lect.addTimeSlot(TimeSlot("THRUS", 9, 10));
+    Course Physics("053302Phy1151", "Physics", 3, 1);
+    Physics.addAvailableTimeSlot(TimeSlot("SUN", 9, 10));                  // 1h
+    Physics.addAvailableTimeSlot(TimeSlot("TUE", 12, 13));                 // 1h
+    Physics.addAvailableTimeSlot(TimeSlot("WED", 10, 11));                 // 1h
 
-    // 5) Build and run scheduler
+    Course PhysicsLab("053302Phy1152", "Physics Laboratory", 0.5, 1);
+    PhysicsLab.addAvailableTimeSlot(TimeSlot("MON", 14, 17));              // 3h
+    PhysicsLab.addAvailableTimeSlot(TimeSlot("WED", 14, 17));              // 3h
+
+    Course English("023102Eng1151", "English", 2, 1);
+    English.addAvailableTimeSlot(TimeSlot("SUN", 12, 13));                 // 1h
+    English.addAvailableTimeSlot(TimeSlot("THU", 12, 13));                 // 1h
+
+    Course EnglishLab("023102Eng1152", "English Skills Laboratory", 0.5, 1);
+    EnglishLab.addAvailableTimeSlot(TimeSlot("TUE", 14, 17));              // 3h
+    EnglishLab.addAvailableTimeSlot(TimeSlot("FRI", 14, 17));              // 3h
+
+    // Create Teachers
+    Teacher farhan("MFS", "Md. Farhan Sadique", "Lecturer");
+    Teacher mondal("MSM", "Dr. Manishankar Mondal", "Associate Professor");
+    Teacher arif("ASM", "Dr. Abu Shamim Mohammad Arif", "Professor");
+    Teacher firoz("SFA", "Dr. Sarder Firoz Ahmmed", "Professor");
+    Teacher parvez("MSP", "Md. Shohel Parvez", "Associate Professor");
+    Teacher shahin("ARS", "Dr. Abdur Rahman Shahin", "Professor");
+
+    // Assign courses to teachers
+    farhan.addCourse(ComputerFundamentalsLab);
+
+    mondal.addCourse(StructuredProgramming);
+    mondal.addCourse(StructuredProgrammingLab);
+
+    arif.addCourse(DiscreteMath);
+
+    firoz.addCourse(Calculus);
+
+    parvez.addCourse(Physics);
+    parvez.addCourse(PhysicsLab);
+
+    shahin.addCourse(English);
+    shahin.addCourse(EnglishLab);
+
+    // Build & run scheduler
     Schedule sched;
-    sched.addTeacher(&prof);
-    sched.addTeacher(&lect);
-    sched.generateSchedule();
+    sched.addTeacher(&farhan);
+    sched.addTeacher(&mondal);
+    sched.addTeacher(&arif);
+    sched.addTeacher(&firoz);
+    sched.addTeacher(&parvez);
+    sched.addTeacher(&shahin);
 
-    // 6) Export only to CSV (no printSchedule)
-    sched.exportCSV("routine.csv");
+    try {
+        sched.generateSchedule();
+        // Export results
+        sched.exportCSV("routine.csv");
+        sched.exportTeachers("teachers.csv");
+        std::cout << "Schedule generated! Check routine.csv and teachers.csv\n";
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
 
-    sched.exportTeachers("teachers.csv");
-    std::cout << "Wrote routine.csv\n";
     return 0;
 }

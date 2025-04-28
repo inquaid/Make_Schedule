@@ -1,14 +1,10 @@
-//
-// Created by azmain inquaid haque on 4/17/2025.
-//
+#include "Course.h"
+#include <cmath>
 
-#include "D:\program\Schedule_Management\include\Course.h"
-
-Course::Course(const std::string &code, const std::string &title, int sessionsPerWeek, int year)
-    : code(code), title(title), sessionsPerWeek(sessionsPerWeek), year(year) {
+Course::Course(const std::string &code, const std::string &title, float credit, int year)
+    : code(code), title(title), credit(credit), year(year) {
 }
 
-// Getters
 std::string Course::getCode() const {
     return code;
 }
@@ -17,11 +13,28 @@ std::string Course::getTitle() const {
     return title;
 }
 
-int Course::getSessionsPerWeek() const {
-    return sessionsPerWeek;
+float Course::getCredit() const {
+    return credit;
 }
 
 int Course::getYear() const {
     return year;
 }
 
+std::vector<int> Course::getSessionDurations() const {
+    if (std::floor(credit) == credit) {
+        // Theory course: credit number of 1-hour sessions
+        return std::vector<int>(static_cast<int>(credit), 1);
+    } else {
+        // Lab course: one 3-hour session
+        return {3};
+    }
+}
+
+void Course::addAvailableTimeSlot(const TimeSlot &timeSlot) {
+    availableTimeSlots.push_back(timeSlot);
+}
+
+const std::vector<TimeSlot> &Course::getAvailableTimeSlots() const {
+    return availableTimeSlots;
+}

@@ -1,3 +1,3 @@
-D:/program/Schedule_Management/cmake-build-debug/CMakeFiles/Schedule_Management.dir
-D:/program/Schedule_Management/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/program/Schedule_Management/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/programs/Make_Schedule/cmake-build-debug/CMakeFiles/Schedule_Management.dir
+D:/programs/Make_Schedule/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/programs/Make_Schedule/cmake-build-debug/CMakeFiles/rebuild_cache.dir

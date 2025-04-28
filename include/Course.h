@@ -1,25 +1,27 @@
-//
-// Created by azmain inquaid haque on 4/17/2025.
-//
-
 #ifndef COURSE_H
 #define COURSE_H
 
 #include <string>
+#include <vector>
+#include "TimeSlot.h"
 
 class Course {
 public:
-    Course(const std::string &code, const std::string &title, int sessionsPerWeek, int year);
+    Course(const std::string &code, const std::string &title, float credit, int year);
     std::string getCode() const;
     std::string getTitle() const;
-    int getSessionsPerWeek() const;
+    float getCredit() const;
     int getYear() const;
+    std::vector<int> getSessionDurations() const;
+    void addAvailableTimeSlot(const TimeSlot &timeSlot);
+    const std::vector<TimeSlot> &getAvailableTimeSlots() const;
 
 private:
     std::string code;
     std::string title;
-    int sessionsPerWeek;
+    float credit;
     int year;
+    std::vector<TimeSlot> availableTimeSlots;
 };
 
 #endif //COURSE_H
