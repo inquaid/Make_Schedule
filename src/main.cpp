@@ -5,7 +5,7 @@
 #include "Schedule.h"
 
 int main() {
-    // Define Courses with credit hours and available timeslots
+    // Define Courses
     Course ComputerFundamentalsLab("071402CSE1100", "Computer Fundamentals Laboratory", 0.5, 1);
     ComputerFundamentalsLab.addAvailableTimeSlot(TimeSlot("SUN", 14, 17)); // 3h
     ComputerFundamentalsLab.addAvailableTimeSlot(TimeSlot("WED", 14, 17)); // 3h
@@ -24,7 +24,7 @@ int main() {
     DiscreteMath.addAvailableTimeSlot(TimeSlot("TUE", 9, 10));             // 1h
     DiscreteMath.addAvailableTimeSlot(TimeSlot("TUE", 10, 11));             // 1h
     DiscreteMath.addAvailableTimeSlot(TimeSlot("THU", 9, 10));             // 1h
-    //
+
     Course Calculus("054102Math1151", "Calculus", 3, 1);
     Calculus.addAvailableTimeSlot(TimeSlot("SUN", 11, 12));                // 1h
     Calculus.addAvailableTimeSlot(TimeSlot("MON", 9, 10));                 // 1h
@@ -82,7 +82,6 @@ int main() {
 
     try {
         sched.generateSchedule();
-        // Export results
         sched.exportCSV("routine.csv");
         sched.exportTeachers("teachers.csv");
         std::cout << "Schedule generated! Check routine.csv and teachers.csv\n";
