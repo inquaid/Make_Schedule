@@ -1,16 +1,16 @@
-"C:\Users\azmain inquaid haque\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/azmain inquaid haque/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\programs\Make_Schedule -B D:\programs\Make_Schedule\cmake-build-debug
--- The C compiler identification is GNU 13.1.0
--- The CXX compiler identification is GNU 13.1.0
+/home/turjo-pop/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/turjo-pop/Documents/Make_Schedule -B /home/turjo-pop/Documents/Make_Schedule/cmake-build-debug
+-- The C compiler identification is GNU 14.1.0
+-- The CXX compiler identification is GNU 14.1.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Users/azmain inquaid haque/AppData/Local/Programs/CLion/bin/mingw/bin/gcc.exe - skipped
+-- Check for working C compiler: /usr/bin/cc - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Users/azmain inquaid haque/AppData/Local/Programs/CLion/bin/mingw/bin/g++.exe - skipped
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (2.8s)
+-- Configuring done (0.3s)
 -- Generating done (0.0s)
--- Build files have been written to: D:/programs/Make_Schedule/cmake-build-debug
+-- Build files have been written to: /home/turjo-pop/Documents/Make_Schedule/cmake-build-debug
