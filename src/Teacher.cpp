@@ -21,9 +21,16 @@ int Teacher::getPriority() const {
     return priority;
 }
 
-void Teacher::addCourse(const Course &course) {
-    courses.push_back(course);
+void Teacher::addCourse(std::vector<Course> &course) {
+    // courses.push_back(course);
+    courses = course;
 }
+
+void Teacher::addTimeSlot(std::vector<TimeSlot> &timeSlot) {
+    // timeSlots.push_back(timeSlot);
+    timeSlots = timeSlot;
+}
+
 
 const std::vector<Course> &Teacher::getCourses() const {
     return courses;

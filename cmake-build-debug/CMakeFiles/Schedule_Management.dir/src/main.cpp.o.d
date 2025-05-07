@@ -173,17 +173,18 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/ostream.tcc \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/istream \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/istream.tcc \
- /home/turjo-pop/Documents/Make_Schedule/include/Teacher.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/sstream \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/sstream.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/fstream \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/codecvt.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/basic_file.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++io.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/fstream.tcc \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/vector \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_uninitialized.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_vector.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_bvector.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/vector.tcc \
- /home/turjo-pop/Documents/Make_Schedule/include/Course.h \
- /home/turjo-pop/Documents/Make_Schedule/include/TimeSlot.h \
- /home/turjo-pop/Documents/Make_Schedule/include/Course.h \
- /home/turjo-pop/Documents/Make_Schedule/include/TimeSlot.h \
- /home/turjo-pop/Documents/Make_Schedule/include/Schedule.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/map \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_tree.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/aligned_buffer.h \
@@ -191,4 +192,48 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_map.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_multimap.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/erase_if.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/regex \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bitset \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/locale \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets_nonio.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/ctime \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/time_members.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/messages_members.h \
+ /usr/include/libintl.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets_nonio.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_conv.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/stack \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/deque \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_deque.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/deque.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_stack.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/shared_ptr.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/shared_ptr_base.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/allocated_ptr.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/unique_ptr.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/concurrence.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/std_function.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_algo.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/algorithmfwd.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_heap.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/uniform_int_dist.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_tempbuf.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_constants.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_error.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_automaton.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_automaton.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_scanner.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_scanner.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_compiler.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_compiler.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_executor.h \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_executor.tcc \
+ /home/turjo-pop/Documents/Make_Schedule/include/Teacher.h \
+ /home/turjo-pop/Documents/Make_Schedule/include/Course.h \
+ /home/turjo-pop/Documents/Make_Schedule/include/TimeSlot.h \
+ /home/turjo-pop/Documents/Make_Schedule/include/Course.h \
+ /home/turjo-pop/Documents/Make_Schedule/include/TimeSlot.h \
+ /home/turjo-pop/Documents/Make_Schedule/include/Schedule.h \
  /home/turjo-pop/Documents/Make_Schedule/include/Teacher.h

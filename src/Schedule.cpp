@@ -43,7 +43,6 @@ void Schedule::generateSchedule() {
     std::vector<SessionRequest> sessions;
     std::map<std::string, Teacher*> courseToTeacher;
 
-    // Sort teachers by priority to assign higher priority teachers' courses first
     std::sort(teachers.begin(), teachers.end(), [](const Teacher* a, const Teacher* b) {
         return a->getPriority() < b->getPriority();
     });

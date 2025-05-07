@@ -698,6 +698,7 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/libintl.h \
   /usr/include/linux/errno.h \
   /usr/include/locale.h \
   /usr/include/sched.h \
@@ -773,7 +774,9 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/backward/binders.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bit \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/algorithmfwd.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/alloc_traits.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/allocated_ptr.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/allocator.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/basic_ios.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/basic_ios.tcc \
@@ -781,14 +784,17 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/basic_string.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/char_traits.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/charconv.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/codecvt.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/concept_check.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/cpp_type_traits.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/cxxabi_forced.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/cxxabi_init_exception.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/deque.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/erase_if.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception_defines.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception_ptr.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/fstream.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/functexcept.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/functional_hash.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/hash_bytes.h \
@@ -797,8 +803,11 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/istream.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_classes.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_classes.tcc \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_conv.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets.tcc \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets_nonio.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets_nonio.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/localefwd.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/memory_resource.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/memoryfwd.h \
@@ -813,18 +822,39 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/ptr_traits.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/range_access.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/refwrap.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex.tcc \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_automaton.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_automaton.tcc \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_compiler.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_compiler.tcc \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_constants.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_error.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_executor.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_executor.tcc \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_scanner.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_scanner.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/requires_hosted.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/shared_ptr.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/shared_ptr_base.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/sstream.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/std_abs.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/std_function.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_algo.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_algobase.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_bvector.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_construct.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_deque.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_function.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_heap.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_iterator.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_iterator_base_funcs.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_iterator_base_types.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_map.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_multimap.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_pair.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_stack.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_tempbuf.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_tree.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_uninitialized.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_vector.h \
@@ -832,11 +862,14 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/streambuf_iterator.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/string_view.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stringfwd.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/uniform_int_dist.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/unique_ptr.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/uses_allocator.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/uses_allocator_args.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/utility.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/vector.tcc \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/version.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/bitset \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cctype \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cerrno \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/clocale \
@@ -844,26 +877,34 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cstddef \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cstdio \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cstdlib \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/ctime \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cwchar \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/cwctype \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/debug/assertions.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/debug/debug.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/deque \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/exception \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/aligned_buffer.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/alloc_traits.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/atomicity.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/concurrence.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/numeric_traits.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/string_conversions.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ext/type_traits.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/fstream \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/initializer_list \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ios \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/iosfwd \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/iostream \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/istream \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/locale \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/map \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/new \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/ostream \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/pstl/pstl_config.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/regex \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/sstream \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/stack \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/stdexcept \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/streambuf \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/string \
@@ -874,8 +915,10 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/typeinfo \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/vector \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/atomic_word.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/basic_file.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++allocator.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++config.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++io.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++locale.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/cpu_defines.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/ctype_base.h \
@@ -883,7 +926,9 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/error_constants.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/gthr-default.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/gthr.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/messages_members.h \
   /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/os_defines.h \
+  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/time_members.h \
   /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include-fixed/pthread.h \
   /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include-fixed/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include-fixed/x86_64-linux-gnu/bits/floatn.h \
@@ -891,7 +936,41 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
   /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include/stddef.h
 
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/time_members.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/stack:
+
 /usr/local/gcc-14.1.0/include/c++/14.1.0/iostream:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/ext/concurrence.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_deque.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/shared_ptr_base.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_error.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_constants.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_automaton.tcc:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_automaton.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex.tcc:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_executor.tcc:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets_nonio.tcc:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets_nonio.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/deque.tcc:
+
+/usr/include/libintl.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/sstream.tcc:
 
 /home/turjo-pop/Documents/Make_Schedule/src/main.cpp:
 
@@ -902,6 +981,10 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/gthr.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/ctype_inline.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/deque:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_compiler.tcc:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/ctype_base.h:
 
@@ -931,6 +1014,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_multimap.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/locale:
+
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_map.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_classes.h:
@@ -942,6 +1027,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/ostream.tcc:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/erase_if.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bitset:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/basic_ios.tcc:
 
@@ -956,6 +1043,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_conv.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -979,13 +1068,19 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 
 /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include/stdarg.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/shared_ptr.h:
+
 /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include-fixed/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/os_defines.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/cpu_defines.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/regex:
+
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/unique_ptr.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
@@ -1008,6 +1103,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_stack.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/istream.tcc:
 
@@ -1059,6 +1156,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/sstream:
+
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception_ptr.h:
@@ -1088,6 +1187,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/include/locale.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++config.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_executor.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/streambuf_iterator.h:
 
@@ -1140,6 +1241,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /home/turjo-pop/Documents/Make_Schedule/include/Course.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/ctime:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets.h:
 
@@ -1237,6 +1340,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_scanner.tcc:
+
 /usr/local/gcc-14.1.0/include/c++/14.1.0/map:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/stl_pair.h:
@@ -1257,6 +1362,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception_defines.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/messages_members.h:
+
 /usr/local/gcc-14.1.0/lib/gcc/x86_64-linux-gnu/14.1.0/include-fixed/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
@@ -1274,6 +1381,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/include/stdlib.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception.h:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_compiler.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/localefwd.h:
 
@@ -1337,11 +1446,15 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/version.h:
 
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/std_function.h:
+
 /usr/local/gcc-14.1.0/include/c++/14.1.0/cerrno:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/stdexcept:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/clocale:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/allocated_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
@@ -1368,6 +1481,8 @@ CMakeFiles/Schedule_Management.dir/src/main.cpp.o: /home/turjo-pop/Documents/Mak
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/initializer_list:
+
+/usr/local/gcc-14.1.0/include/c++/14.1.0/bits/regex_scanner.h:
 
 /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++allocator.h:
 

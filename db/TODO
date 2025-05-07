@@ -1,0 +1,8 @@
+name is excel files are not optimized.
+eiter every name should have prefix or every name shouldn't
+this creates anomoly while creating their ID's
+
+
+course_code; where is course_name ??
+
+courses are taken as integer

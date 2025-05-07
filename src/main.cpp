@@ -1,93 +1,183 @@
 #include <iostream>
+#include <sstream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <map>
+#include <regex>
 #include "Teacher.h"
 #include "Course.h"
 #include "TimeSlot.h"
 #include "Schedule.h"
+using namespace std;
+
+map <string, pair<string, int>> course_credit;
+vector<string> days = {"sunday", "monday", "tuesday", "wednesday", "thursday"};
+
+void add_courses(vector<Course> &courses, string courseCode) {
+    string title = course_credit[courseCode].first;
+    int credit = course_credit[courseCode].second;
+    int year = courseCode[courseCode.size() - 4] - '0';
+    int term = courseCode[courseCode.size() - 3] - '0';
+    courses.push_back(*new Course(courseCode, title, credit, year, term));
+}
+
+void add_timeslots(vector<TimeSlot> &timeslots, string timeslot, int day) {
+    int strt = 0, end = 0;
+    string temp;
+    while (timeslot.size() and timeslot[0] == ' ') {
+        timeslots.erase(timeslots.begin());
+    }
+    // if (!timeslot.size()) {cout <<"NULL\n"; return;}
+    cout << timeslot << " ";
+    if (timeslot[0] == '1') {
+        temp = "";
+        temp += timeslot[0]; temp += timeslot[1];
+        strt = stoi(temp);
+        timeslot.erase(timeslot.begin(), timeslot.begin() + 3);
+        end = stoi(timeslot);
+        // cout << strt << " " << end << endl;
+    } else {
+        temp = "";
+        temp += timeslot[0];
+        // cout << temp << endl;
+        strt = stoi(temp);
+        timeslot.erase(timeslot.begin(), timeslot.begin() + 2);
+        end = stoi(timeslot);
+    }
+    // cout << endl;
+    cout << strt << " " << end << endl;
+    while (strt < end) {
+        timeslots.push_back(*new TimeSlot(days[day], strt, strt + 1));
+        // cout << strt << " " << end << endl;
+        strt++;
+    }
+}
 
 int main() {
-    // Define Courses
-    Course ComputerFundamentalsLab("071402CSE1100", "Computer Fundamentals Laboratory", 0.5, 1);
-    ComputerFundamentalsLab.addAvailableTimeSlot(TimeSlot("SUN", 14, 17)); // 3h
-    ComputerFundamentalsLab.addAvailableTimeSlot(TimeSlot("WED", 14, 17)); // 3h
+    ifstream in("/home/turjo-pop/Documents/Make_Schedule/db/teachers_timeslot.csv");
+    ifstream in_course("/home/turjo-pop/Documents/Make_Schedule/db/credits.csv");
 
-    Course StructuredProgramming("071402CSE1101", "Structured Programming", 3, 1);
-    StructuredProgramming.addAvailableTimeSlot(TimeSlot("MON", 11, 12));   // 1h
-    StructuredProgramming.addAvailableTimeSlot(TimeSlot("TUE", 9, 10));    // 1h
-    StructuredProgramming.addAvailableTimeSlot(TimeSlot("THU", 11, 12));   // 1h
-
-    Course StructuredProgrammingLab("071402CSE1102", "Structured Programming Laboratory", 0.5, 1);
-    StructuredProgrammingLab.addAvailableTimeSlot(TimeSlot("THU", 14, 17)); // 3h
-    StructuredProgrammingLab.addAvailableTimeSlot(TimeSlot("FRI", 14, 17)); // 3h
-
-    Course DiscreteMath("071402CSE1103", "Discrete Mathematics", 2, 1);
-    DiscreteMath.addAvailableTimeSlot(TimeSlot("SUN", 10, 11));            // 1h
-    DiscreteMath.addAvailableTimeSlot(TimeSlot("TUE", 9, 10));             // 1h
-    DiscreteMath.addAvailableTimeSlot(TimeSlot("TUE", 10, 11));             // 1h
-    DiscreteMath.addAvailableTimeSlot(TimeSlot("THU", 9, 10));             // 1h
-
-    Course Calculus("054102Math1151", "Calculus", 3, 1);
-    Calculus.addAvailableTimeSlot(TimeSlot("SUN", 11, 12));                // 1h
-    Calculus.addAvailableTimeSlot(TimeSlot("MON", 9, 10));                 // 1h
-    Calculus.addAvailableTimeSlot(TimeSlot("WED", 9, 10));                 // 1h
-
-    Course Physics("053302Phy1151", "Physics", 3, 1);
-    Physics.addAvailableTimeSlot(TimeSlot("SUN", 9, 10));                  // 1h
-    Physics.addAvailableTimeSlot(TimeSlot("TUE", 12, 13));                 // 1h
-    Physics.addAvailableTimeSlot(TimeSlot("WED", 10, 11));                 // 1h
-
-    Course PhysicsLab("053302Phy1152", "Physics Laboratory", 0.5, 1);
-    PhysicsLab.addAvailableTimeSlot(TimeSlot("MON", 14, 17));              // 3h
-    PhysicsLab.addAvailableTimeSlot(TimeSlot("WED", 14, 17));              // 3h
-
-    Course English("023102Eng1151", "English", 2, 1);
-    English.addAvailableTimeSlot(TimeSlot("SUN", 12, 13));                 // 1h
-    English.addAvailableTimeSlot(TimeSlot("THU", 12, 13));                 // 1h
-
-    Course EnglishLab("023102Eng1152", "English Skills Laboratory", 0.5, 1);
-    EnglishLab.addAvailableTimeSlot(TimeSlot("TUE", 14, 17));              // 3h
-    EnglishLab.addAvailableTimeSlot(TimeSlot("FRI", 14, 17));              // 3h
-
-    // Create Teachers
-    Teacher farhan("MFS", "Md. Farhan Sadique", "Lecturer");
-    Teacher mondal("MSM", "Dr. Manishankar Mondal", "Associate Professor");
-    Teacher arif("ASM", "Dr. Abu Shamim Mohammad Arif", "Professor");
-    Teacher firoz("SFA", "Dr. Sarder Firoz Ahmmed", "Professor");
-    Teacher parvez("MSP", "Md. Shohel Parvez", "Associate Professor");
-    Teacher shahin("ARS", "Dr. Abdur Rahman Shahin", "Professor");
-
-    // Assign courses to teachers
-    farhan.addCourse(ComputerFundamentalsLab);
-
-    mondal.addCourse(StructuredProgramming);
-    mondal.addCourse(StructuredProgrammingLab);
-
-    arif.addCourse(DiscreteMath);
-
-    firoz.addCourse(Calculus);
-
-    parvez.addCourse(Physics);
-    parvez.addCourse(PhysicsLab);
-
-    shahin.addCourse(English);
-    shahin.addCourse(EnglishLab);
-
-    // Build & run scheduler
-    Schedule sched;
-    sched.addTeacher(&farhan);
-    sched.addTeacher(&mondal);
-    sched.addTeacher(&arif);
-    sched.addTeacher(&firoz);
-    sched.addTeacher(&parvez);
-    sched.addTeacher(&shahin);
-
-    try {
-        sched.generateSchedule();
-        sched.exportCSV("routine.csv");
-        sched.exportTeachers("teachers.csv");
-        std::cout << "Schedule generated! Check routine.csv and teachers.csv\n";
-    } catch (const std::runtime_error& e) {
-        std::cerr << "Error: " << e.what() << "\n";
+    if (!in.is_open() or !in_course.is_open()) {
+        cerr << "Unable to open file" << endl;
     }
+    else cerr << "opened" << endl;
+
+    string row;
+    getline(in_course, row);
+    // cout << row << endl;
+    stringstream crs(row);
+    while (getline(in_course, row)) {
+        // cout << row << endl;
+        stringstream crs(row);
+        string name, title, credit_string; int credit;
+        getline(crs, name, ',');
+        getline(crs, title, ',');
+        getline(crs, credit_string, ',');
+        credit = stoi(credit_string);
+        // cout << name << " " << title << " " << credit << endl;
+        course_credit[name] = {title, credit};
+    }
+    // for (auto [name, id] : course_credit) {
+    // cout << name << " " << id.first << " " << id.second << endl;
+    // }
+    // return 0;
+    Schedule sched;
+    string header;
+    getline(in, header);
+    cout << header << endl;
+
+    vector<string> cols;
+
+    stringstream hh(header);
+    while (getline(hh, row, ',')) {
+        cols.push_back(row);
+    }
+    // for (auto col : cols) {
+    //     cout << col << endl;
+    // }
+    while (getline(in, row)) {
+        // cout << row << endl; continue;
+        stringstream ss(row);
+        vector<string> fields;
+        string field;
+        while (getline(ss, field, ',')) {
+            if (field.empty()) field = "NULL";
+            fields.push_back(field);
+        }
+        if (fields.size() < 4) {continue;}
+
+        string designation = fields[0];
+        string name = fields[1];
+        string temp_name = name;
+        string id = "";
+        stringstream ss2(temp_name);
+        while (ss2 >> temp_name) {
+            // cout << name << endl;
+            if (temp_name.size() > 3) id += temp_name[0];
+        }
+        Teacher *t = new Teacher(designation, name, id);
+
+        int i = 2;
+        string courseCode = fields[i++];
+        vector<Course> courses;
+        int year = 0, term = 0;
+        if (courseCode[0] == '"') {
+            courseCode.erase(courseCode.begin());
+            add_courses(courses, courseCode);
+            bool flag = true;
+            while (flag) {
+                courseCode = fields[i++];
+                if (courseCode.back() == '"') {
+                    courseCode.pop_back(); flag = false;
+                }
+                add_courses(courses, courseCode);
+            }
+            // return 0;
+        } else {
+            add_courses(courses, courseCode);
+        }
+
+        // cout << fields[i] << endl;
+        // cout << fields[i + 1] << endl;
+        // cout << fields[i] << endl;
+
+        int day = 0;
+        vector<TimeSlot> timeslots;
+        while (i < fields.size()) {
+            string timeslot = fields[i++];
+            if (timeslot[0] == '"') {
+                timeslot.erase(timeslot.begin());
+                add_timeslots(timeslots, timeslot, day);
+                bool flag = true;
+                while (flag) {
+                    timeslot = fields[i++];
+                    if (timeslot.back() == '"') {
+                        timeslot.pop_back(); flag = false;
+                    }
+                    // cout << timeslot << " ";
+                // add_timeslots(timeslots, timeslot, day);
+                }
+            } else {
+                // add_timeslots(timeslots,timeslot, day);
+            }
+            day++;
+        }
+        return 0;
+        // for (auto i : timeslots) {
+        //     cout << i.getDay() << " " << i.getStartHour() << " " << i.getEndHour() << endl;
+        // }
+        // for (auto i : courses) {
+        //     cout << i.getCode() << " " << i.getTitle() << endl;
+        // }
+        // return 0;
+        t->addCourse(courses);
+        // t->addTimeSlot(timeslots);
+        // return 0;
+
+    }
+
+    cout << "Hello World!" << endl;
 
     return 0;
 }

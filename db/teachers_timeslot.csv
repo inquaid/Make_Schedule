@@ -1,0 +1,12 @@
+designation,name,courses,Sunday,monday,tuesday,wednesday,thursday
+Professor,Dr. Abu Shamim Mohammad Arif,"CSE1103,CSE3107,CSE3108",9_12,"14_15, 13_14",9_13,9_13,13_17
+Associate Professor,Dr. Manishankar Mondal ,"CSE1101,CSE1102",14_17,9_13,9_12,10_13,14_17
+Lecturer,Md. Farhan Sadique,"CSE1100,CSE2101,CSE2102",9_13,9_13,14_17,9_13,14_17
+Professor,Dr. Kazi Masudul Alam,"CSE2100,CSE3103,CSE3104",9_15,9_13,14_17,"9_10, 12_1",11_13
+Professor,Dr. Md. Anisur Rahman,"CSE2105,CSE2106",9_12,9_13,14_17,14_17,14_17
+Lecturer,Sajib Chatterjee,"CSE2103,CSE2104",14_17,"9_13, 16_17",9_12,14_16,14_17
+Professor,Dr. SK Alamgir Hossain,"CSE3101,CSE3102",14_17,11_13,9_12,14_17,"9_13, 14_17"
+Assistant professor,Atanu Shome,"CSE3105,CSE3106",14_17,9_10,14_17,14_17,9_11
+Assistant professor,Farhana Tazmim Pinki,"CSE4103,CSE4104",9_11,14_17,14_17,9_12,9_11
+Professor,Dr. Rameswar Debnath,"CSE4105,CSE4106",9_11,10_13,14_17,14_17,15_16
+Professor,Dr. G M Atiqur Rahaman,CSE4123,9_13,14_17,9_13,14_17,

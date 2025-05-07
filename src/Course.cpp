@@ -1,8 +1,8 @@
 #include "Course.h"
 #include <cmath>
 
-Course::Course(const std::string &code, const std::string &title, float credit, int year)
-    : code(code), title(title), credit(credit), year(year) {
+Course::Course(const std::string &code, const std::string &title, float credit, int year, int term)
+    : code(code), title(title), credit(credit), year(year), term(term) {
 }
 
 std::string Course::getCode() const {
@@ -21,12 +21,14 @@ int Course::getYear() const {
     return year;
 }
 
+int Course::getTerm() const {
+    return term;
+}
+
 std::vector<int> Course::getSessionDurations() const {
     if (std::floor(credit) == credit) {
-        // Theory course: credit number of 1-hour sessions
         return std::vector<int>(static_cast<int>(credit), 1);
     } else {
-        // Lab course: one 3-hour session
         return {3};
     }
 }
