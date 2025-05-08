@@ -145,8 +145,8 @@ CMakeFiles/Schedule_Management.dir/src/Schedule.cpp.o: \
  /home/turjo-pop/Documents/Make_Schedule/include/Teacher.h \
  /home/turjo-pop/Documents/Make_Schedule/include/Course.h \
  /home/turjo-pop/Documents/Make_Schedule/include/TimeSlot.h \
- /usr/local/gcc-14.1.0/include/c++/14.1.0/fstream \
- /usr/local/gcc-14.1.0/include/c++/14.1.0/istream \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/iostream \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/ostream \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/ios \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/exception \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/exception_ptr.h \
@@ -186,9 +186,10 @@ CMakeFiles/Schedule_Management.dir/src/Schedule.cpp.o: \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/ctype_inline.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/locale_facets.tcc \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/basic_ios.tcc \
- /usr/local/gcc-14.1.0/include/c++/14.1.0/ostream \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/ostream.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/istream \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/istream.tcc \
+ /usr/local/gcc-14.1.0/include/c++/14.1.0/fstream \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/bits/codecvt.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/basic_file.h \
  /usr/local/gcc-14.1.0/include/c++/14.1.0/x86_64-linux-gnu/bits/c++io.h \

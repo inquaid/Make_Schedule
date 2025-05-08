@@ -16,6 +16,7 @@ public:
     void addCourse(std::vector<Course> &course);
     void addTimeSlot(std::vector<TimeSlot> &timeSlot);
     const std::vector<Course> &getCourses() const;
+    const std::vector<TimeSlot> &getTimeSlots() const;
 
 private:
     std::string code;

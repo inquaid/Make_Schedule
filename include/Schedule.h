@@ -4,32 +4,41 @@
 #include <vector>
 #include <string>
 #include <map>
+
 #include "Teacher.h"
 #include "Course.h"
 #include "TimeSlot.h"
 
+using namespace std;
+
 struct Assignment {
-    Teacher* teacher;
-    Course course;
-    TimeSlot timeSlot;
+    Teacher *teacher;
+    Course *course;
+};
+
+struct day {
+    map<pair<int, int>, vector<Assignment>> period;
 };
 
 class Schedule {
 public:
+
+    Schedule(const std::vector<Teacher> &teachers);
+
     struct SessionRequest {
         Course course;
         int duration;
     };
 
-    void addTeacher(Teacher* teacher);
+    void check();
+    bool backtrack(int i);
     void generateSchedule();
-    void exportCSV(const std::string& filename) const;
-    void exportTeachers(const std::string &filename) const;
-    bool backtrack(int idx, const std::vector<SessionRequest> &sessions, const std::map<std::string, Teacher*> &courseToTeacher);
+    bool possible();
 
 private:
-    std::vector<Teacher*> teachers;
-    std::vector<Assignment> assignments;
+    std::vector<Teacher> teachers;
+    std::vector<day> days;
+    std::vector<string> weeks;
 };
 
 #endif // SCHEDULE_H

@@ -36,6 +36,10 @@ const std::vector<Course> &Teacher::getCourses() const {
     return courses;
 }
 
+const std::vector<TimeSlot> &Teacher::getTimeSlots() const {
+    return timeSlots;
+}
+
 void Teacher::setPriorityFromDesignation() {
     if (designation == "Professor") {
         priority = 1;

@@ -25,11 +25,16 @@ void add_courses(vector<Course> &courses, string courseCode) {
 void add_timeslots(vector<TimeSlot> &timeslots, string timeslot, int day) {
     int strt = 0, end = 0;
     string temp;
+    // if (timeslot[0] == ' ') {
+    //     // timeslots[0] = '?';
+    //     timeslot.erase(timeslot.begin());
+    //     cout << timeslot << " ";
+    // }
+    // return;
     while (timeslot.size() and timeslot[0] == ' ') {
-        timeslots.erase(timeslots.begin());
+        timeslot.erase(timeslot.begin());
     }
     // if (!timeslot.size()) {cout <<"NULL\n"; return;}
-    cout << timeslot << " ";
     if (timeslot[0] == '1') {
         temp = "";
         temp += timeslot[0]; temp += timeslot[1];
@@ -46,7 +51,7 @@ void add_timeslots(vector<TimeSlot> &timeslots, string timeslot, int day) {
         end = stoi(timeslot);
     }
     // cout << endl;
-    cout << strt << " " << end << endl;
+    // cout << strt << " " << end << endl;
     while (strt < end) {
         timeslots.push_back(*new TimeSlot(days[day], strt, strt + 1));
         // cout << strt << " " << end << endl;
@@ -82,7 +87,7 @@ int main() {
     // cout << name << " " << id.first << " " << id.second << endl;
     // }
     // return 0;
-    Schedule sched;
+    // Schedule sched;
     string header;
     getline(in, header);
     cout << header << endl;
@@ -96,6 +101,7 @@ int main() {
     // for (auto col : cols) {
     //     cout << col << endl;
     // }
+    vector<Teacher> teachers;
     while (getline(in, row)) {
         // cout << row << endl; continue;
         stringstream ss(row);
@@ -116,7 +122,7 @@ int main() {
             // cout << name << endl;
             if (temp_name.size() > 3) id += temp_name[0];
         }
-        Teacher *t = new Teacher(designation, name, id);
+        Teacher *t = new Teacher(id, name, designation);
 
         int i = 2;
         string courseCode = fields[i++];
@@ -149,21 +155,25 @@ int main() {
             if (timeslot[0] == '"') {
                 timeslot.erase(timeslot.begin());
                 add_timeslots(timeslots, timeslot, day);
+                // cout << timeslot << " ";
+
                 bool flag = true;
                 while (flag) {
                     timeslot = fields[i++];
                     if (timeslot.back() == '"') {
                         timeslot.pop_back(); flag = false;
                     }
-                    // cout << timeslot << " ";
-                // add_timeslots(timeslots, timeslot, day);
+                    // cout << timeslot << endl;
+                   add_timeslots(timeslots, timeslot, day);
                 }
             } else {
-                // add_timeslots(timeslots,timeslot, day);
+                // cout << timeslot << " ";
+
+                add_timeslots(timeslots,timeslot, day);
             }
             day++;
         }
-        return 0;
+        // return 0;
         // for (auto i : timeslots) {
         //     cout << i.getDay() << " " << i.getStartHour() << " " << i.getEndHour() << endl;
         // }
@@ -172,10 +182,30 @@ int main() {
         // }
         // return 0;
         t->addCourse(courses);
-        // t->addTimeSlot(timeslots);
+        t->addTimeSlot(timeslots);
+        teachers.push_back(*t);
         // return 0;
 
     }
+    sort(teachers.begin(), teachers.end(),
+        [](const Teacher &t1, const Teacher &t2) {
+            return t1.getPriority() > t2.getPriority();
+        });
+
+    // for (auto t : teachers) {
+    //     cout << t.getName() << " " << t.getDesignation() << " " << t.getPriority() << endl;
+    //     // for (auto course : t.getCourses()) {
+    //     //     cout << course.getCode() << endl;
+    //     // }
+    //     // cout << endl;
+    //     // for (auto time : t.getTimeSlots()) {
+    //     //     cout << time.getStartHour() << " " << time.getEndHour() << endl;
+    //     // }
+    //     // cout << endl << endl;
+    // }
+    Schedule *sched = new Schedule(teachers);
+    sched->check();
+    TimeSlot *ts;
 
     cout << "Hello World!" << endl;
 
