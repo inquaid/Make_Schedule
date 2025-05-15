@@ -1,0 +1,77 @@
+course,title,credits
+CSE1100,Computer Fundamentals,1
+CSE1101,Structured Programming,3
+CSE1102,Structured Programming Laboratory,1
+CSE1103,Discrete  Mathematics,3
+Math1151,Calculus,3
+Phy1151,Physics,3
+Phy1152,Physics Laboratory ,1
+Eng1151,English ,2
+Eng1152,EnglishSkills Laboratory,1
+CSE1200,Structured Programming Project,1
+CSE1201,Object Oriented Programming,3
+CSE1202,Object Oriented Programming Laboratory,1
+ECE1251,Electrical Circuits,3
+ECE1252,Electrical Circuits Laboratory,1
+ME1251,Mechanics and Heat Engineering,2
+ME1252,Engineering Drawing and CAD Project ,1
+Math1251,Coordinate Geometry and Linear Algebra,3
+Chem1251,Chemistry,3
+Econ1251,Economics for Engineers,1
+CSE2100,Advanced Programming Laboratory,1
+CSE2101,Data Structures,3
+CSE2102,Data Structures Laboratory,1
+CSE2103,Numerical Methods for Engineers,3
+CSE2104,Numerical Methods for Engineers Laboratory,1
+CSE2105,Digital Logic Design,3
+CSE2106,Digital Logic Design Laboratory,1
+ECE2151,Electronic Devices and Circuits,3
+ECE2152,Electronic Devices and Circuits Laboratory,1
+Math2151,Differential Equations,3
+CSE2201,Algorithms,3
+CSE2202,Algorithms Laboratory,1
+CSE2203,Computer Architecture,3
+CSE2204,Computer Architecture and Assembly Language Laboratory/project,1
+CSE2205,Database Systems ,3
+CSE2206,Database Systems Project/Fieldwork,1
+ECE2251,Digital Electronics,2
+Math2251,"Vector Analysis,Complex Variable and Mathematical Methods",3
+CSE3101,Data Communication and Computer Networks,3
+CSE3102,Data Communication and Computer Networks Laboratory/Fieldwork,1
+CSE3103,Software Engineering and Information Systems,3
+CSE3104,Software Engineering and Information Systems Laboratory/Fieldwork,1
+CSE3105,Microprocessors and Microcontrollers,3
+CSE3106,Microprocessors and Microcontrollers Laboratory/Project/Fieldwork,1
+CSE3107,Operating System and Systems Programming,3
+CSE3108,Operating System and Systems Programming Laboratory/Project,1
+Stat3151,Statistics for Engineers,3
+BA3151,Industrial Management ,2
+CSE3201,Artifical Intelligence,3
+CSE3202,Artifical Intelligence Laboratory/Project/Fieldwork,1
+CSE3204,Technical Writing and Presentation,1
+ECE3251,Electrical Drives and Instrumentation,3
+ECE3252,Electrical Drives and Instrumentation Laboratory,1
+BA3251,Accounting,2
+Law3251,Cyber and Intellectual Property Law,2
+Psy3251,Engineeering Ethics and Environment Protection ,2
+CSE3225,Digital Image Processing,3
+CSE3226,Digital Image Processing Laboratory/Project,1
+CSE4100,Thesis Proposal,2
+CSE4103,Compiler Design,3
+CSE4104,Compiler Design Laboratory/Project,1
+CSE4105 ,Computer Graphics,3
+CSE4106,Computer Graphics Laboratory/Project,1
+CSE4107,Information Security,3
+CSE4108,Information Security Laboratory/Project,1
+CSE4109,Mathemical Analysis for Computer Science,2
+CSE4123,Machine Learning,3
+CSE4160,Industrial Training/Fieldwork/Study Tour,0
+CSE4200,Thesis,4
+CSE4202,Web Programming & Mobile Applications Development Project/Fieldwork,1
+CSE4204,Viva-voce,1
+BA4251,Business Entrepreneurship,2
+CSE4223,Data Mining,3
+CSE4224,Data Mining Laboratory/Project,1
+CSE4225,Digital System Design,3
+CSE4226,Digital System Design Laboratory/Project,1
+CSE4237,Cloud Computing,3
