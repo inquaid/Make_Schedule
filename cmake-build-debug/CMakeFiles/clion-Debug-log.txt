@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /home/turjo-pop/Documents/Make_Schedule Select CMakeLists.txt

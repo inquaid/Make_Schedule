@@ -25,7 +25,7 @@ void add_courses(vector<Course> &courses, string courseCode) {
 
 void add_timeslots(vector<TimeSlot> &timeslots, string timeslot, int day) {
     // return;
-    if (timeslot == "NULL") return;
+    if (timeslot == "nan" or timeslot == "NULL") return;
     int strt = 0, end = 0;
     string temp;
     // if (timeslot[0] == ' ') {
@@ -77,6 +77,8 @@ int main() {
     ifstream in("../db/teachers_timeslot.csv");
     ifstream in_course("../db/credits.csv");
 
+    // cout << "Hello World!" << endl; return 0;
+
     if (!in.is_open() or !in_course.is_open()) {
         cerr << "Unable to open file" << endl;
     }
@@ -99,7 +101,7 @@ int main() {
         course_credit[name] = {title, credit};
     }
     // for (auto [name, id] : course_credit) {
-    //     cout << name << " " << id.first << " " << id.second << endl;
+    // cout << name << " " << id.first << " " << id.second << endl;
     // }
     // return 0;
     // Schedule sched;

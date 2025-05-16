@@ -1,19 +1,2 @@
 designation,name,courses,sunday,monday,tuesday,wednesday,thursday
-Professor,Dr. Abu Shamim Mohammad Arif,"CSE1103,CSE3107,CSE3108",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. Sarder Firoz Ahmmed,Math1151,9_17,9_17,9_17,9_17,9_17
-Professor,Dr. Abdur Rahman Shahin,"Eng1151,Eng1152",9_17,9_17,9_17,9_17,9_17
-Associate Professor,Dr. Manishankar Mondal ,"CSE1101,CSE1102",9_17,9_17,9_17,9_17,9_17
-Associate Professor,Md. Shohel Parvez,"Phy1151,Phy1152",9_17,9_17,9_17,9_17,9_17
-Lecturer,Md. Farhan Sadique,"CSE1100,CSE2101,CSE2102",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. Kazi Masudul Alam,"CSE2100,CSE3103,CSE3104",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. Md. Anisur Rahman,"CSE2105,CSE2106",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. Md. Mahbub Hossain,"ECE2151,ECE2152",9_17,9_17,9_17,9_17,9_17
-Associate Professor,Dr. Md. Azizur Rahman,Math2151,9_17,9_17,9_17,9_17,9_17
-Lecturer,Sajib Chatterjee,"CSE2103,CSE2104",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. SK Alamgir Hossain,"CSE3101,CSE3102",9_17,9_17,9_17,9_17,9_17
-Assistant professor,Atanu Shome,"CSE3105,CSE3106",9_17,9_17,9_17,9_17,9_17
-Associate Professor,Md. Menhazul Abedin,Stat3151,9_17,9_17,9_17,9_17,9_17
-Associate Professor,Nusrat Zahan Lopa,BA3151,9_17,9_17,9_17,9_17,9_17
-Assistant professor,Farhana Tazmim Pinki,"CSE4103,CSE4104",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. Rameswar Debnath,"CSE4105,CSE4106",9_17,9_17,9_17,9_17,9_17
-Professor,Dr. G M Atiqur Rahaman,CSE4123,9_17,9_17,9_17,9_17,9_17
+professor,azmain inquaid,"cse2102,cse2103,cse2101","9_10,11_12",14_17,,9_10,"9_10,11_12,14_15"

@@ -1,0 +1,3 @@
+/home/turjo-pop/Documents/Make_Schedule/Algorithm/build/CMakeFiles/Schedule_Management.dir
+/home/turjo-pop/Documents/Make_Schedule/Algorithm/build/CMakeFiles/edit_cache.dir
+/home/turjo-pop/Documents/Make_Schedule/Algorithm/build/CMakeFiles/rebuild_cache.dir
