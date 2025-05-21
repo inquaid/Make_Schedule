@@ -8,6 +8,8 @@ from PySide6.QtWidgets import (
 )
 import pandas as pd
 
+import make_pdf
+
 
 class SchedulerGUI(QWidget):
     def __init__(self):
@@ -176,6 +178,7 @@ class SchedulerGUI(QWidget):
                 QMessageBox.critical(self, "Error", f"Execution failed:\n{result.stderr}")
             else:
                 QMessageBox.information(self, "Success", "Schedule generated successfully!")
+                make_pdf.do_work()
 
         except subprocess.CalledProcessError as e:
             QMessageBox.critical(self, "CMake Error", f"Command failed:\n{e}")

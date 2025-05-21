@@ -101,7 +101,7 @@ bool Schedule::isValidTimeSlot(Teacher *t, Course *c, TimeSlot &ts) {
 Schedule::Schedule(const std::vector<Teacher> &teachers)
     : teachers(teachers) {
     day d1;
-    for (int i = 9; i < 17; i++) {
+    for (int i = 8; i < 17; i++) {
         d1.period[{i, i + 1}];
     }
     for (int i = 0; i < 5; i++) {
