@@ -76,20 +76,10 @@ bool Schedule::isValidTimeSlot(Teacher *t, Course *c, TimeSlot &ts) {
             return false;
         }
     } else {
-        // cout << ts.getDay() << " " << ts.getStartHour() << " " << ts.getEndHour() << endl;
-        // if (ts.getStartHour() == 13) {
-        //     return false;
-        // }
-        // cout << day_string_to_int[ts.getDay()] << endl;
         auto &it = days[day_string_to_int[ts.getDay()]].period[{ts.getStartHour(), ts.getEndHour()}];
-        // cout << it.size() << endl;
         if (possible(it, t, c)) {
             Assignment a = {t, c};
-            // cout << a.teacher->getName() << " " << a.course->getTitle() << endl;
-            // cout << it.size() << endl;
             it.push_back(a);
-            // cout << it.size() << endl;
-            // cout << "Added" << endl;
             return true;
         } else {
             return false;
@@ -180,12 +170,6 @@ bool Schedule::backtrack(int tIdx, int cIdx, int sIdx) {
 
     for (const TimeSlot &ts: remainingTimeSlots2) {
         if (c.isLabCourse() && ts.getStartHour() != 14) continue;
-
-        // if (!alreadyThere(ts, c, t)) {
-        //     remainingTimeSlots2.push_back(ts);
-        //     continue;
-        // }
-
         if (isValidTimeSlot(&t, const_cast<Course *>(&c), const_cast<TimeSlot &>(ts))) {
             if (backtrack(tIdx, cIdx, sIdx + 1)) return true;
             int dayIdx = day_string_to_int[ts.getDay()];
@@ -204,40 +188,7 @@ bool Schedule::backtrack(int tIdx, int cIdx, int sIdx) {
 
 
 void Schedule::generateSchedule() {
-    // sessionRequests.clear();
-    // assignments.clear();
-    // yearOccupied.clear();
-    // teacherOccupied.clear();
-    //
-    // // Generate session requests based on courses
-    // for (const auto &teacher: teachers) {
-    //     for (const auto &course: teacher.getCourses()) {
-    //         int totalHours = static_cast<int>(course.getCredit());
-    //         if (course.isLabCourse()) {
-    //             sessionRequests.emplace_back(&teacher, &course, 3); // Lab
-    //         } else {
-    //             for (int i = 0; i < totalHours; i++) {
-    //                 // Theory
-    //                 sessionRequests.emplace_back(&teacher, &course, 1);
-    //             }
-    //         }
-    //     }
-    // }
-    //
-    // // Sort session requests: prioritize lab courses and higher credit courses
-    // std::sort(sessionRequests.begin(), sessionRequests.end(),
-    //           [](const auto &a, const auto &b) {
-    //               const auto *courseA = std::get<1>(a);
-    //               const auto *courseB = std::get<1>(b);
-    //               if (courseA->isLabCourse() != courseB->isLabCourse()) {
-    //                   return courseA->isLabCourse();
-    //               }
-    //               return courseA->getCredit() > courseB->getCredit();
-    //           });
-
-    // Attempt scheduling
     int flag = backtrack(0, 0, 0);
-    // cout << flag << endl;
     if (flag) {
         std::cout << "success" << std::endl;
         exportCSV("schedule.csv");

@@ -1,2 +1,21 @@
 designation,name,courses,sunday,monday,tuesday,wednesday,thursday
-as,qw,12,,,,,
+Professor,John Doe,"cse1101, cse1102",9_11,9_10,11_12,12_13,14_17
+Professor,Emily Clark,"cse2101, cse2102","9_10, 14_15",,,,14_17
+Associate Professor,Robert Brown,"cse3101, cse3102",10_12,11_13,9_11,14_16,10_12
+Assistant Professor,Laura Wilson,"cse4101, cse4102",11_13,9_11,14_16,10_12,11_13
+Lecturer,David Lee,"cse1201, cse1202",14_16,10_12,11_13,9_11,14_16
+Lecturer,Anna Kim,"cse2201, cse2202",9_11,14_16,10_12,11_13,9_11
+Professor,Michael Green,"cse1301, cse1302",10_12,9_11,14_16,10_12,11_13
+Associate Professor,Susan White,"cse2301, cse2302",11_13,10_12,9_11,14_16,10_12
+Assistant Professor,James Black,"cse3301, cse3302",14_16,11_13,10_12,9_11,14_16
+Lecturer,Karen Adams,"cse4301, cse4302",9_11,14_16,11_13,10_12,9_11
+Professor,William Johnson,"cse1401, cse1402",9_10,10_11,11_12,12_13,14_15
+Associate Professor,Linda Martinez,"cse2401, cse2402",10_11,11_12,12_13,14_15,15_16
+Assistant Professor,Thomas Anderson,"cse3401, cse3402",11_12,12_13,14_15,15_16,16_17
+Lecturer,Patricia Taylor,"cse4401, cse4402",12_13,14_15,15_16,16_17,9_10
+Professor,Charles Harris,"cse1501, cse1502",14_15,15_16,16_17,9_10,10_11
+Associate Professor,Barbara Moore,"cse2501, cse2502",15_16,16_17,9_10,10_11,11_12
+Assistant Professor,Christopher Martin,"cse3501, cse3502",16_17,9_10,10_11,11_12,12_13
+Lecturer,Elizabeth Thompson,"cse4501, cse4502",9_10,10_11,11_12,12_13,14_15
+Professor,Daniel Garcia,"cse1601, cse1602",10_11,11_12,12_13,14_15,15_16
+Associate Professor,Margaret Rodriguez,"cse2601, cse2602",11_12,12_13,14_15,15_16,16_17
