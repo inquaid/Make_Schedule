@@ -140,7 +140,6 @@ This project is licensed under the MIT License.
 ## 🤝 Acknowledgments
 
 * Inspired by classic solutions to the University Course Timetabling Problem (UCTP)
-* Contributions from: Azmain Inquaid Haque
 
 ---
 
