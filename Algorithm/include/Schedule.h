@@ -40,6 +40,8 @@ public:
     // bool isEmpty(const std::string& day, const std::pair<int, int>& time, int year);
     void exportCSV(const std::string& filename) const;
     bool alreadyThere(const TimeSlot &ts, const Course &c, const Teacher &t);
+    bool trySchedule(Teacher& t, const Course& c, const TimeSlot& ts, int session);
+    void undoAssignment(const Course& c, const TimeSlot& ts);
 private:
     std::map<string, int> day_string_to_int;
     std::vector<Teacher> teachers;

@@ -76,10 +76,20 @@ bool Schedule::isValidTimeSlot(Teacher *t, Course *c, TimeSlot &ts) {
             return false;
         }
     } else {
+        // cout << ts.getDay() << " " << ts.getStartHour() << " " << ts.getEndHour() << endl;
+        // if (ts.getStartHour() == 13) {
+        //     return false;
+        // }
+        // cout << day_string_to_int[ts.getDay()] << endl;
         auto &it = days[day_string_to_int[ts.getDay()]].period[{ts.getStartHour(), ts.getEndHour()}];
+        // cout << it.size() << endl;
         if (possible(it, t, c)) {
             Assignment a = {t, c};
+            // cout << a.teacher->getName() << " " << a.course->getTitle() << endl;
+            // cout << it.size() << endl;
             it.push_back(a);
+            // cout << it.size() << endl;
+            // cout << "Added" << endl;
             return true;
         } else {
             return false;
@@ -114,6 +124,29 @@ bool Schedule::alreadyThere(const TimeSlot &ts, const Course &c, const Teacher &
     }
     return true;
 }
+bool Schedule::trySchedule(Teacher& t, const Course& c, const TimeSlot& ts, int session) {
+    if (c.isLabCourse() && session > 0) return false;
+
+    TimeSlot modifiedTS = ts;
+    if (c.isLabCourse()) {
+        modifiedTS = TimeSlot(ts.getDay(), ts.getStartHour(), ts.getStartHour() + 3);
+    }
+
+    return isValidTimeSlot(&t, const_cast<Course*>(&c), modifiedTS);
+}
+
+void Schedule::undoAssignment(const Course& c, const TimeSlot& ts) {
+    int dayIdx = day_string_to_int[ts.getDay()];
+    if (c.isLabCourse()) {
+        for (int i = 0; i < 3; i++) {
+            auto& period = days[dayIdx].period[{ts.getStartHour() + i, ts.getStartHour() + i + 1}];
+            period.pop_back();
+        }
+    } else {
+        auto& period = days[dayIdx].period[{ts.getStartHour(), ts.getEndHour()}];
+        period.pop_back();
+    }
+}
 
 bool Schedule::backtrack(int tIdx, int cIdx, int sIdx) {
     if (tIdx >= teachers.size()) return true;
@@ -124,62 +157,35 @@ bool Schedule::backtrack(int tIdx, int cIdx, int sIdx) {
     const Course &c = courses[cIdx];
     int totalSessions = c.isLabCourse() ? 1 : c.getCredit();
     if (sIdx >= totalSessions) return backtrack(tIdx, cIdx + 1, 0);
-    vector<TimeSlot> remainingTimeSlots;
-    for (const TimeSlot &ts: t.getTimeSlots()) {
-        if (c.isLabCourse() && ts.getStartHour() != 14) continue;
+    vector<TimeSlot> preferredSlots, fallbackSlots;
+    for (const TimeSlot& ts : t.getTimeSlots()) {
+        bool teacherFreeOnDay = true;
+        auto& daySchedule = days[day_string_to_int[ts.getDay()]];
 
-        if (!alreadyThere(ts, c, t)) {
-            remainingTimeSlots.push_back(ts);
-            continue;
+        for (auto& [period, assignments] : daySchedule.period) {
+            for (auto& a : assignments) {
+                if (a.teacher == &t) {
+                    teacherFreeOnDay = false;
+                    break;
+                }
+            }
+            if (!teacherFreeOnDay) break;
         }
 
-        if (isValidTimeSlot(&t, const_cast<Course *>(&c), const_cast<TimeSlot &>(ts))) {
+        (teacherFreeOnDay ? preferredSlots : fallbackSlots).push_back(ts);
+    }
+
+    for (const TimeSlot& ts : preferredSlots) {
+        if (trySchedule(t, c, ts, sIdx)) {
             if (backtrack(tIdx, cIdx, sIdx + 1)) return true;
-            int dayIdx = day_string_to_int[ts.getDay()];
-            if (c.isLabCourse()) {
-                for (int d = 0; d < 3; ++d) {
-                    days[dayIdx].period[{ts.getStartHour() + d, ts.getStartHour() + d + 1}].pop_back();
-                }
-            } else {
-                days[dayIdx].period[{ts.getStartHour(), ts.getEndHour()}].pop_back();
-            }
+            undoAssignment(c, ts);
         }
     }
 
-    vector<TimeSlot> remainingTimeSlots2;
-    for (const TimeSlot &ts: remainingTimeSlots) {
-        if (c.isLabCourse() && ts.getStartHour() != 14) continue;
-
-        if (!alreadyThere(ts, c, t)) {
-            remainingTimeSlots2.push_back(ts);
-            continue;
-        }
-
-        if (isValidTimeSlot(&t, const_cast<Course *>(&c), const_cast<TimeSlot &>(ts))) {
+    for (const TimeSlot& ts : fallbackSlots) {
+        if (trySchedule(t, c, ts, sIdx)) {
             if (backtrack(tIdx, cIdx, sIdx + 1)) return true;
-            int dayIdx = day_string_to_int[ts.getDay()];
-            if (c.isLabCourse()) {
-                for (int d = 0; d < 3; ++d) {
-                    days[dayIdx].period[{ts.getStartHour() + d, ts.getStartHour() + d + 1}].pop_back();
-                }
-            } else {
-                days[dayIdx].period[{ts.getStartHour(), ts.getEndHour()}].pop_back();
-            }
-        }
-    }
-
-    for (const TimeSlot &ts: remainingTimeSlots2) {
-        if (c.isLabCourse() && ts.getStartHour() != 14) continue;
-        if (isValidTimeSlot(&t, const_cast<Course *>(&c), const_cast<TimeSlot &>(ts))) {
-            if (backtrack(tIdx, cIdx, sIdx + 1)) return true;
-            int dayIdx = day_string_to_int[ts.getDay()];
-            if (c.isLabCourse()) {
-                for (int d = 0; d < 3; ++d) {
-                    days[dayIdx].period[{ts.getStartHour() + d, ts.getStartHour() + d + 1}].pop_back();
-                }
-            } else {
-                days[dayIdx].period[{ts.getStartHour(), ts.getEndHour()}].pop_back();
-            }
+            undoAssignment(c, ts);
         }
     }
 
@@ -188,7 +194,40 @@ bool Schedule::backtrack(int tIdx, int cIdx, int sIdx) {
 
 
 void Schedule::generateSchedule() {
+    // sessionRequests.clear();
+    // assignments.clear();
+    // yearOccupied.clear();
+    // teacherOccupied.clear();
+    //
+    // // Generate session requests based on courses
+    // for (const auto &teacher: teachers) {
+    //     for (const auto &course: teacher.getCourses()) {
+    //         int totalHours = static_cast<int>(course.getCredit());
+    //         if (course.isLabCourse()) {
+    //             sessionRequests.emplace_back(&teacher, &course, 3); // Lab
+    //         } else {
+    //             for (int i = 0; i < totalHours; i++) {
+    //                 // Theory
+    //                 sessionRequests.emplace_back(&teacher, &course, 1);
+    //             }
+    //         }
+    //     }
+    // }
+    //
+    // // Sort session requests: prioritize lab courses and higher credit courses
+    // std::sort(sessionRequests.begin(), sessionRequests.end(),
+    //           [](const auto &a, const auto &b) {
+    //               const auto *courseA = std::get<1>(a);
+    //               const auto *courseB = std::get<1>(b);
+    //               if (courseA->isLabCourse() != courseB->isLabCourse()) {
+    //                   return courseA->isLabCourse();
+    //               }
+    //               return courseA->getCredit() > courseB->getCredit();
+    //           });
+
+    // Attempt scheduling
     int flag = backtrack(0, 0, 0);
+    // cout << flag << endl;
     if (flag) {
         std::cout << "success" << std::endl;
         exportCSV("schedule.csv");
